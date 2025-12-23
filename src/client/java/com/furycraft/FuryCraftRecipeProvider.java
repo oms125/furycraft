@@ -1,0 +1,42 @@
+package com.furycraft;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+public class FuryCraftRecipeProvider extends FabricRecipeProvider {
+    public FuryCraftRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, registriesFuture);
+    }
+
+    @Override
+    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
+        return new RecipeProvider(registryLookup, exporter) {
+            @Override
+            public void buildRecipes() {
+                HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
+
+                // Burger Recipe
+                shaped(RecipeCategory.FOOD, FuryCraftItems.BURGER, 1)
+                        .define('B', Items.BREAD).define('S', Items.COOKED_BEEF)
+                        .pattern("B").pattern("S").pattern("B")
+                        .unlockedBy(getHasName(Items.COOKED_BEEF), has(Items.COOKED_BEEF)).save(output);
+            }
+        };
+    }
+
+    @Override
+    public @NotNull String getName() {
+        return "QOLCraftModRecipeProvider";
+    }
+}
