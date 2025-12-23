@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "furycraft:item/burger"
+    "layer0": "furycraft:item/cheese"
   }
 }

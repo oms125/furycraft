@@ -27,10 +27,14 @@ public class FuryCraftRecipeProvider extends FabricRecipeProvider {
                 HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
 
                 // Burger Recipe
-                shaped(RecipeCategory.FOOD, FuryCraftItems.BURGER, 1)
+                shaped(RecipeCategory.FOOD, FuryCraftItems.HAMBURGER, 1)
                         .define('B', Items.BREAD).define('S', Items.COOKED_BEEF)
                         .pattern("B").pattern("S").pattern("B")
                         .unlockedBy(getHasName(Items.COOKED_BEEF), has(Items.COOKED_BEEF)).save(output);
+                // Cheeseburger Recipe
+                shapeless(RecipeCategory.FOOD, FuryCraftItems.CHEESEBURGER, 1)
+                        .requires(FuryCraftItems.HAMBURGER).requires(FuryCraftItems.CHEESE)
+                        .unlockedBy(getHasName(FuryCraftItems.HAMBURGER), has(FuryCraftItems.HAMBURGER)).save(output);
             }
         };
     }

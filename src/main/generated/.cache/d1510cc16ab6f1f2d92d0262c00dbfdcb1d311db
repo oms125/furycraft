@@ -1,3 +1,5 @@
 // 1.21.10	-999999999-01-01T00:00:00	FuryCraft/QOLCraftModRecipeProvider
-cb801c7c4856f289a0bd5446c21152358b0a29d9 data/furycraft/advancement/recipes/food/burger.json
-3eeadee203168769c464351f5a46cf7e32f204b1 data/furycraft/recipe/burger.json
+95949eb6797bbe22018d7cf87dec47be6ea13745 data/furycraft/advancement/recipes/food/cheeseburger.json
+3c39f0af048a442760dc2ef35a50b7eff047a9ba data/furycraft/advancement/recipes/food/hamburger.json
+f674e504aa8671ac4fb25a3c667444588378d491 data/furycraft/recipe/cheeseburger.json
+6068831908d80d17f3d6621dcad9e4b90533048a data/furycraft/recipe/hamburger.json

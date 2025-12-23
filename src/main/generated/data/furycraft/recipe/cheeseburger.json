@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "furycraft:hamburger",
+    "furycraft:cheese"
+  ],
+  "result": {
+    "count": 1,
+    "id": "furycraft:cheeseburger"
+  }
+}

@@ -1,5 +1,6 @@
 package com.furycraft;
 
+import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -13,13 +14,20 @@ import net.minecraft.world.item.Item;
 import java.util.function.Function;
 
 public class FuryCraftItems {
-    public static final Item BURGER = register("burger", Item::new, new Item.Properties()
-            .food(new FoodProperties.Builder().nutrition(12).saturationModifier(1.0f).build()));
+    public static final Item HAMBURGER = register("hamburger", Item::new, new Item.Properties()
+            .food(new FoodProperties.Builder().nutrition(12).saturationModifier(1.6f).build()));
+    public static final Item CHEESEBURGER = register("cheeseburger", Item::new, new Item.Properties()
+            .food(new FoodProperties.Builder().nutrition(14).saturationModifier(1.8f).build()));
+    public static final Item CHEESE = register("cheese", Item::new, new Item.Properties()
+            .food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.8f).build()));
 
     public static void init() {
-        //Add burger to food tab
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS)
-                .register((itemGroup) -> itemGroup.accept(FuryCraftItems.BURGER));
+        Event<ItemGroupEvents.ModifyEntries> FOOD_AND_DRINKS = ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS);
+
+        FOOD_AND_DRINKS.register((itemGroup) -> itemGroup.accept(FuryCraftItems.HAMBURGER));
+        FOOD_AND_DRINKS.register((itemGroup) -> itemGroup.accept(FuryCraftItems.CHEESEBURGER));
+        FOOD_AND_DRINKS.register((itemGroup) -> itemGroup.accept(FuryCraftItems.CHEESE));
+
     }
 
     public static <GenericItem extends Item> GenericItem register(String name, Function<Item.Properties, GenericItem> itemFactory, Item.Properties settings) {
