@@ -35,6 +35,15 @@ public class FuryCraftRecipeProvider extends FabricRecipeProvider {
                 shapeless(RecipeCategory.FOOD, FuryCraftItems.CHEESEBURGER, 1)
                         .requires(FuryCraftItems.HAMBURGER).requires(FuryCraftItems.CHEESE)
                         .unlockedBy(getHasName(FuryCraftItems.HAMBURGER), has(FuryCraftItems.HAMBURGER)).save(output);
+                // Cheese Recipe
+                shapeless(RecipeCategory.FOOD, FuryCraftItems.CHEESE, 4)
+                        .requires(FuryCraftItems.CHEESE_BLOCK)
+                        .unlockedBy(getHasName(FuryCraftItems.CHEESE_BLOCK), has(FuryCraftItems.CHEESE_BLOCK)).save(output);
+                // Cheese Block Recipe
+                shaped(RecipeCategory.BUILDING_BLOCKS, FuryCraftItems.CHEESE_BLOCK, 1)
+                        .define('C', FuryCraftItems.CHEESE)
+                        .pattern("CC").pattern("CC")
+                        .unlockedBy(getHasName(FuryCraftItems.CHEESE_BLOCK), has(FuryCraftItems.CHEESE_BLOCK)).save(output);
             }
         };
     }

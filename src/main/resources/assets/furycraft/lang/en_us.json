@@ -1,5 +1,7 @@
 {
   "item.furycraft.hamburger": "Hamburger",
   "item.furycraft.cheeseburger": "Cheeseburger",
-  "item.furycraft.cheese": "Cheese"
+  "item.furycraft.cheese": "Cheese",
+
+  "block.furycraft.cheese_block": "Cheese Block"
 }
